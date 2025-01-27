@@ -10,3 +10,4 @@ Sub clean_tare()
     ActiveCell.FormulaR1C1 = "TRUE"
     Range("P8").Select
 End Sub
+'
