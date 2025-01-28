@@ -1,0 +1,17 @@
+Sheet: interface
+----------------------------------------
+Sheet: calculs_intermediaires
+----------------------------------------
+Merged Range: H8:H9
+Merged Range: D8:D9
+Merged Range: I8:J8
+Merged Range: B8:C8
+Merged Range: E8:F8
+Sheet: idea
+----------------------------------------
+Sheet: test
+----------------------------------------
+Sheet: draft
+----------------------------------------
+Sheet: pop_up
+----------------------------------------

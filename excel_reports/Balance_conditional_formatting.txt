@@ -1,0 +1,24 @@
+Sheet: interface
+----------------------------------------
+Rule: <ConditionalFormatting B16:I48>, Applied to: [<openpyxl.formatting.rule.Rule object>
+Parameters:
+type='expression', rank=None, priority=1, equalAverage=None, operator=None, aboveAverage=None, dxfId=3, stdDev=None, stopIfTrue=None, timePeriod=None, text=None, percent=None, bottom=None, colorScale=None, dataBar=None, iconSet=None, formula=['B16<>""']]
+Sheet: calculs_intermediaires
+----------------------------------------
+Rule: <ConditionalFormatting G10:J16>, Applied to: [<openpyxl.formatting.rule.Rule object>
+Parameters:
+type='containsErrors', rank=None, priority=6, equalAverage=None, operator=None, aboveAverage=None, dxfId=2, stdDev=None, stopIfTrue=None, timePeriod=None, text=None, percent=None, bottom=None, colorScale=None, dataBar=None, iconSet=None, formula=['ISERROR(G10)']]
+Rule: <ConditionalFormatting B10:J16>, Applied to: [<openpyxl.formatting.rule.Rule object>
+Parameters:
+type='cellIs', rank=None, priority=2, equalAverage=None, operator='equal', aboveAverage=None, dxfId=1, stdDev=None, stopIfTrue=None, timePeriod=None, text=None, percent=None, bottom=None, colorScale=None, dataBar=None, iconSet=None, formula=['TRUE']]
+Rule: <ConditionalFormatting I33:I100>, Applied to: [<openpyxl.formatting.rule.Rule object>
+Parameters:
+type='containsText', rank=None, priority=1, equalAverage=None, operator='containsText', aboveAverage=None, dxfId=0, stdDev=None, stopIfTrue=True, timePeriod=None, text='TRUE', percent=None, bottom=None, colorScale=None, dataBar=None, iconSet=None, formula=['NOT(ISERROR(SEARCH("TRUE",I33)))']]
+Sheet: idea
+----------------------------------------
+Sheet: test
+----------------------------------------
+Sheet: draft
+----------------------------------------
+Sheet: pop_up
+----------------------------------------
