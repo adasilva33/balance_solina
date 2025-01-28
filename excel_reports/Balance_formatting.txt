@@ -18,6 +18,7 @@ Cell C4: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Va
 Cell E4: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell F4: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell G4: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
+Cell H4: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=None, Number Format='General'
 Cell B6: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell C6: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=Values must be of type <class 'str'>, Alignment=center, Number Format='General'
 Cell F10: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=right, Number Format='General'
@@ -26,6 +27,7 @@ Cell F12: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=V
 Cell G12: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=Values must be of type <class 'str'>, Alignment=center, Number Format='General'
 Cell F13: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=right, Number Format='General'
 Cell G13: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
+Cell H13: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell B15: Font='Aptos Narrow', Size=12.0, Bold=True, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell C15: Font='Aptos Narrow', Size=12.0, Bold=True, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell D15: Font='Aptos Narrow', Size=12.0, Bold=True, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
@@ -378,7 +380,6 @@ Cell J47: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=V
 Cell K47: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell L47: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell M47: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
-
 Sheet: calculs_intermediaires
 ----------------------------------------
 Cell B2: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=True, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=None, Number Format='General'
@@ -859,14 +860,12 @@ Cell AE70: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=
 Cell AF70: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell AG70: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='0.00'
 Cell AH70: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='0'
-
 Sheet: idea
 ----------------------------------------
 Cell A1: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell B1: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell A2: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell B2: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
-
 Sheet: test
 ----------------------------------------
 Cell B2: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
@@ -883,9 +882,7 @@ Cell D5: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Va
 Cell B6: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell E6: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell B7: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
-Cell F7: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell B8: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
-Cell G8: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell B9: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell C9: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell D9: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
@@ -893,7 +890,6 @@ Cell E9: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Va
 Cell F9: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell G9: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell H9: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
-
 Sheet: draft
 ----------------------------------------
 Cell B2: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
@@ -911,7 +907,6 @@ Cell E9: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Va
 Cell E10: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell E11: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell E12: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
-
 Sheet: pop_up
 ----------------------------------------
 Cell B2: Font='Aptos Narrow', Size=12.0, Bold=True, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
@@ -946,4 +941,3 @@ Cell F5: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Va
 Cell F6: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell F7: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell F8: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
-
