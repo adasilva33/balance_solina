@@ -1,6 +1,6 @@
 #!/bin/sh
 
-../.venv/bin/python3 .githooks/pre-commit.py
+.venv/bin/python3 .githooks/pre-commit.py
 
 # Check the exit status of the Python script
 if [ $? -ne 0 ]; then
