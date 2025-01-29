@@ -13,11 +13,7 @@ type='cellIs', rank=None, priority=2, equalAverage=None, operator='equal', above
 Rule: <ConditionalFormatting I33:I100>, Applied to: [<openpyxl.formatting.rule.Rule object>
 Parameters:
 type='containsText', rank=None, priority=1, equalAverage=None, operator='containsText', aboveAverage=None, dxfId=0, stdDev=None, stopIfTrue=True, timePeriod=None, text='TRUE', percent=None, bottom=None, colorScale=None, dataBar=None, iconSet=None, formula=['NOT(ISERROR(SEARCH("TRUE",I33)))']]
-Sheet: idea
-----------------------------------------
 Sheet: test
-----------------------------------------
-Sheet: draft
 ----------------------------------------
 Sheet: pop_up
 ----------------------------------------

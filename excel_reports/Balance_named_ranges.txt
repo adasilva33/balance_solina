@@ -1,0 +1,14 @@
+Workbook Named Ranges
+----------------------------------------
+Name: _xleta.FILTER, Refers To: #NAME?
+Name: _xleta.NOMINAL, Refers To: #NAME?
+Name: _xleta.PY, Refers To: #NAME?
+Name: _xleta.ROW, Refers To: #NAME?
+Name: _xleta.SUM, Refers To: #NAME?
+Name: _xleta.T, Refers To: #NAME?
+Name: _xlpm.row, Refers To: #NAME?
+Name: x_pesee, Refers To: OFFSET(data_brute!$A$2,0,0,COUNTA(data_brute!$A:$A)-1,1)
+Name: y_lci, Refers To: OFFSET(data_brute!$J$2,0,0,COUNTA(data_brute!$J:$J)-1,1)
+Name: y_lcs, Refers To: OFFSET(data_brute!$K$2,0,0,COUNTA(data_brute!$K:$K)-1,1)
+Name: y_poids_net, Refers To: OFFSET(data_brute!$H$2,0,0,COUNTA(data_brute!$H:$H)-1,1)
+Name: y_qn, Refers To: OFFSET(data_brute!$I$2,0,0,COUNTA(data_brute!$I:$I)-1,1)
