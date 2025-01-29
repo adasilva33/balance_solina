@@ -35,7 +35,7 @@ def parse_vba(workbook_path, file_prefix):
 
 
 def generate_text_reports(workbook_path, file_prefix):
-    """Generates text reports for all details of an Excel file and renames them uniquely."""
+    """Generates text reports for all details of an Excel file, including named ranges."""
     report_path = "excel_reports"
     os.makedirs(report_path, exist_ok=True)
 
@@ -49,7 +49,15 @@ def generate_text_reports(workbook_path, file_prefix):
         f"{file_prefix}_merged_cells.txt": [],
         f"{file_prefix}_data_validations.txt": [],
         f"{file_prefix}_hyperlinks.txt": [],
+        f"{file_prefix}_named_ranges.txt": [],
     }
+
+    # Track Named Ranges
+    named_ranges_section = ["Workbook Named Ranges\n" + "-" * 40]
+    for name in workbook.defined_names:  # ✅ Corrected iteration
+        destination = workbook.defined_names[name].attr_text  # Named range reference
+        named_ranges_section.append(f"Name: {name}, Refers To: {destination}")
+    reports[f"{file_prefix}_named_ranges.txt"].extend(named_ranges_section)
 
     for sheet_name in workbook.sheetnames:
         sheet = workbook[sheet_name]
