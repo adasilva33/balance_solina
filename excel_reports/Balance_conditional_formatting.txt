@@ -1,8 +1,7 @@
+Sheet: data_brute
+----------------------------------------
 Sheet: interface
 ----------------------------------------
-Rule: <ConditionalFormatting B16:I48>, Applied to: [<openpyxl.formatting.rule.Rule object>
-Parameters:
-type='expression', rank=None, priority=1, equalAverage=None, operator=None, aboveAverage=None, dxfId=3, stdDev=None, stopIfTrue=None, timePeriod=None, text=None, percent=None, bottom=None, colorScale=None, dataBar=None, iconSet=None, formula=['B16<>""']]
 Sheet: calculs_intermediaires
 ----------------------------------------
 Rule: <ConditionalFormatting G10:J16>, Applied to: [<openpyxl.formatting.rule.Rule object>
