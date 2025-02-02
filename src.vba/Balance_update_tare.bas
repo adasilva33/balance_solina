@@ -8,7 +8,7 @@ Sub update_tar()
     Set ws = ThisWorkbook.Sheets("calculs_intermediaires")
     
     ' Call the function and store the result
-    userInput = PopUpAndInputWithConfirmation()
+    userInput = PopUpAndInputWithConfirmation("pop_up", "B3", "B4")
     
     ' Check if the user canceled
     If IsError(userInput) Then Exit Sub
