@@ -1,17 +1,12 @@
 Public Sub CheckAndDisplayMessage(cell_check As Range, cell_output As Range)
-    ' Ensure the cell_check is not empty or invalid
+    Debug.Print "Checking:", cell_check.Address, "Value:", cell_check.Value
     If Not IsEmpty(cell_check.Value) Then
-        ' Check if the value in cell_check is True
-        If cell_check.Value = True Then
-            ' Display the value from cell_output
+        If cell_check.Value = True Or LCase(cell_check.Value) = "true" Then
             MsgBox cell_output.Value, vbInformation, "Message Alerte"
-        'Else
-        '    MsgBox "The value in the check cell is not True.", vbExclamation, "Invalid Check"
         End If
-    Else
-        MsgBox "The check cell is empty.", vbExclamation, "Empty Cell"
     End If
 End Sub
+
 
 Private Sub Worksheet_Change(ByVal Target As Range)
     'moyenne courte inf QN
@@ -44,3 +39,4 @@ Private Sub Worksheet_Change(ByVal Target As Range)
         Call CheckAndDisplayMessage(Sheets("test").Range("H9"), Sheets("pop_up").Range("M3"))
     End If
 End Sub
+
