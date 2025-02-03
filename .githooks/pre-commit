@@ -13,6 +13,7 @@ fi
 
 # Automatically stage the generated excel_reports/ folder
 git add excel_reports/
+git add src.vba/
 
 echo "Pre-commit script completed successfully."
 echo "The generated reports in 'excel_reports/' have been staged."
