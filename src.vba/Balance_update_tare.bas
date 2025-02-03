@@ -8,7 +8,8 @@ Sub update_tar()
     Set ws = ThisWorkbook.Sheets("calculs_intermediaires")
     
     ' Call the function and store the result
-    userInput = PopUpAndInputWithConfirmation("pop_up", "B3", "B4", 1)
+    Call DisplayCellTextWithConfirmation("pop_up", "B3")
+    userInput = PopUpAndInputWithConfirmation("pop_up", "B4", "B5", 1)
     
     ' Check if the user canceled
     If IsError(userInput) Then Exit Sub
@@ -30,6 +31,9 @@ Sub update_tar()
     Application.CutCopyMode = False
     
     ' ligne fin
+    targetCell.Offset(-1, 3).Copy
+    targetCell.Offset(-1, 3).PasteSpecial Paste:=xlPasteValues
+    Application.CutCopyMode = False
     targetCell.Offset(0, 3).FormulaR1C1 = "=RC[-1]+R4C17"
     
     ' nb

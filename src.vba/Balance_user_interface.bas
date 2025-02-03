@@ -111,10 +111,12 @@ Sub DisplayFinLot()
 End Sub
 
 Sub DisplayDebutOf()
-    Sheets("interface").Cells(3, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C2", "C3", 0)
-    Sheets("interface").Cells(4, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C4", "C5", 0)
-    Call DisplayCellTextWithConfirmation("pop_up", "C3")
+    Sheets("interface").Cells(3, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C3", "C4", 0)
+    Sheets("interface").Cells(4, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C5", "C6", 0)
+    Sheets("interface").Cells(5, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C7", "C8", 1)
+    Call DisplayCellTextWithConfirmation("pop_up", "C9")
 End Sub
+
 Sub DisplayDebutEquipe()
     Call DisplayCellTextWithConfirmation("pop_up", "F3")
     Call DisplayCellTextWithConfirmation("pop_up", "F4")
