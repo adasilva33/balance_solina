@@ -67,17 +67,21 @@ def generate_text_reports(workbook_path, file_prefix):
         formulas_section = [f"Sheet: {sheet_name}\n" + "-" * 40]
         for row in sheet.iter_rows():
             for cell in row:
-                if cell.value:
-                    formula = (
-                        cell.value
-                        if isinstance(cell.value, str) and cell.value.startswith("=")
-                        else ""
+                if cell.value is not None:
+                    # Determine the type of the cell content
+                    if isinstance(cell.value, str):
+                        cell_type = "Text"
+                    elif isinstance(cell.value, (int, float)):
+                        cell_type = "Number"
+                    elif isinstance(cell.value, bool):
+                        cell_type = "Boolean"
+                    else:
+                        cell_type = "Other"
+
+                    # Format the output to include the type and value
+                    formulas_section.append(
+                        f"Cell {cell.coordinate}: Value='{cell.value}', Type='{cell_type}'"
                     )
-                    eval_value = eval_sheet[cell.coordinate].value
-                    if formula:
-                        formulas_section.append(
-                            f"Cell {cell.coordinate}: Formula='{formula}', Evaluated='{eval_value}'"
-                        )
         reports[f"{file_prefix}_formulas_and_values.txt"].extend(formulas_section)
 
         # 2. Formatting
