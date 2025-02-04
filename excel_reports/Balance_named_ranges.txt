@@ -1,5 +1,15 @@
 Workbook Named Ranges
 ----------------------------------------
+Name: _xlchart.v1.10, Refers To: data_brute!$R$1
+Name: _xlchart.v1.17, Refers To: data_brute!$N$1
+Name: _xlchart.v1.18, Refers To: data_brute!$O$1
+Name: _xlchart.v1.19, Refers To: data_brute!$P$1
+Name: _xlchart.v1.20, Refers To: data_brute!$Q$1
+Name: _xlchart.v1.21, Refers To: data_brute!$R$1
+Name: _xlchart.v1.6, Refers To: data_brute!$N$1
+Name: _xlchart.v1.7, Refers To: data_brute!$O$1
+Name: _xlchart.v1.8, Refers To: data_brute!$P$1
+Name: _xlchart.v1.9, Refers To: data_brute!$Q$1
 Name: _xleta.FILTER, Refers To: #NAME?
 Name: _xleta.NOMINAL, Refers To: #NAME?
 Name: _xleta.PY, Refers To: #NAME?
