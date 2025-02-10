@@ -1,26 +1,64 @@
-Sub AutoScale()
-    Dim wsChart As Worksheet, wsData As Worksheet
-    Dim cht As ChartObject
-    Dim minY As Double, maxY As Double
+Sub AdjustYAxis()
+    Dim chartObj As ChartObject
+    Dim ws As Worksheet
+    Dim minY As Variant, maxY As Variant
+    Dim sheetPassword As String
 
-    ' Define the correct sheets
-    Set wsChart = Sheets("interface") ' Sheet where the chart is located
-    Set wsData = Sheets("calculs_intermediaires") ' Sheet where min/max values are stored
+    ' Définir explicitement la feuille de travail
+    Set ws = ThisWorkbook.Sheets("interface") ' Remplacez par le bon nom
+    sheetPassword = "gaetan" ' Remplacez par votre mot de passe
 
-    ' Define the chart object correctly
-    Set cht = wsChart.ChartObjects("Chart 2") ' Replace with actual chart name
+    ' Déprotéger la feuille
+    On Error Resume Next
+    ws.Unprotect Password:=sheetPassword
+    On Error GoTo 0
 
-    ' Retrieve min and max values safely
-    minY = wsData.Range("BU8").Value
-    maxY = wsData.Range("BU9").Value
+    ' Vérifier s'il y a des graphiques
+    If ws.ChartObjects.Count = 0 Then
+        MsgBox "Aucun graphique trouvé sur la feuille " & ws.Name, vbExclamation, "Erreur"
+        ws.Protect Password:=sheetPassword, UserInterfaceOnly:=True ' Reprotéger avant de quitter
+        Exit Sub
+    End If
 
-    ' Ensure valid min/max values before applying them
-    If IsNumeric(minY) And IsNumeric(maxY) And minY < maxY Then
-        With cht.chart.Axes(xlValue)
+    ' Vérifier la feuille contenant les valeurs min/max
+    If Not WorksheetExists("calculs_intermediaires") Then
+        MsgBox "La feuille 'calculs_intermediaires' n'existe pas.", vbExclamation, "Erreur"
+        ws.Protect Password:=sheetPassword, UserInterfaceOnly:=True ' Reprotéger avant de quitter
+        Exit Sub
+    End If
+
+    ' Récupérer les valeurs min/max
+    minY = Sheets("calculs_intermediaires").Range("BX8").Value
+    maxY = Sheets("calculs_intermediaires").Range("BX9").Value
+
+    ' Vérifier si ce sont bien des nombres
+    If Not IsNumeric(minY) Or Not IsNumeric(maxY) Then
+        MsgBox "Les valeurs des cellules BU8 et BU9 ne sont pas valides.", vbExclamation, "Erreur"
+        ws.Protect Password:=sheetPassword, UserInterfaceOnly:=True ' Reprotéger avant de quitter
+        Exit Sub
+    End If
+
+    ' Ajuster les axes des graphiques
+    On Error Resume Next
+    For Each chartObj In ws.ChartObjects
+        With chartObj.chart.Axes(xlValue)
             .MinimumScale = minY
             .MaximumScale = maxY
         End With
-    Else
-        MsgBox "Invalid min/max values in BU8/BU9!", vbExclamation, "Error"
-    End If
+    Next chartObj
+    On Error GoTo 0
+
+    ' Réactiver la protection après modifications
+    ws.Protect Password:=sheetPassword, UserInterfaceOnly:=True
+
+    MsgBox "Ajustement terminé avec succès.", vbInformation, "Succès"
 End Sub
+
+' Fonction pour vérifier l'existence d'une feuille
+Function WorksheetExists(sheetName As String) As Boolean
+    Dim ws As Worksheet
+    On Error Resume Next
+    Set ws = ThisWorkbook.Sheets(sheetName)
+    On Error GoTo 0
+    WorksheetExists = Not ws Is Nothing
+End Function
