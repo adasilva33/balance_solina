@@ -11,8 +11,8 @@ Sub SaveCopyWithCustomName()
     ' Récupérer les valeurs de la feuille "interface"
     Dim projectName As String, versionName As String
     On Error Resume Next
-    projectName = Sheets("interface").Range("B3").Value
-    versionName = Sheets("interface").Range("B4").Value
+    projectName = Sheets("interface").Range("C3").Value
+    versionName = Sheets("interface").Range("C4").Value
     On Error GoTo 0
 
     ' Vérifier si les cellules sont remplies
