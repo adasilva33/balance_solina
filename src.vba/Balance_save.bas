@@ -44,7 +44,7 @@ Sub SaveCopyWithCustomName()
     End If
 
     ' Construire le chemin complet
-    savePath = folderPath & "\" & fileName
+    savePath = folderPath & "\" & Sheets("interface").Range("C6").Value & "\" & fileName
 
     ' Vérifier si le chemin d'accès est accessible
     If Dir(folderPath, vbDirectory) = "" Then
