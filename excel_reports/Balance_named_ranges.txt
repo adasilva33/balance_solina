@@ -12,6 +12,7 @@ Name: x_pesee, Refers To: OFFSET(data_brute!$A$2,0,0,COUNTA(data_brute!$A:$A)-1,
 Name: y_lci, Refers To: OFFSET(data_brute!$O$2,0,0,COUNTA(data_brute!$O:$O)-1,1)
 Name: y_lcs, Refers To: OFFSET(data_brute!$P$2,0,0,COUNTA(data_brute!$P:$P)-1,1)
 Name: y_moyenne_courte, Refers To: OFFSET(data_brute!$R$2,0,0,COUNTA(data_brute!$R:$R)-1,1)
+Name: y_moyenne_echantillon, Refers To: OFFSET(data_brute!#REF!,0,0,COUNTA(data_brute!#REF!)-1,1)
 Name: y_moyenne_longue, Refers To: OFFSET(data_brute!$Q$2,0,0,COUNTA(data_brute!$Q:$Q)-1,1)
 Name: y_poids_net, Refers To: OFFSET(data_brute!$M$2,0,0,COUNTA(data_brute!$M:$M)-1,1)
 Name: y_qn, Refers To: OFFSET(data_brute!$N$2,0,0,COUNTA(data_brute!$N:$N)-1,1)
