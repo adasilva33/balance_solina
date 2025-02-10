@@ -1,6 +1,8 @@
 Workbook Named Ranges
 ----------------------------------------
 Name: _xleta.FILTER, Refers To: #NAME?
+Name: _xleta.MAX, Refers To: #NAME?
+Name: _xleta.MIN, Refers To: #NAME?
 Name: _xleta.NOMINAL, Refers To: #NAME?
 Name: _xleta.PY, Refers To: #NAME?
 Name: _xleta.ROW, Refers To: #NAME?
