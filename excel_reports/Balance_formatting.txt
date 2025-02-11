@@ -978,7 +978,7 @@ Cell J5: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Va
 Cell K5: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell L5: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Cell B6: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
-Cell C6: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=Values must be of type <class 'str'>, Alignment=center, Number Format='General'
+Cell C6: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=False, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=center, Number Format='General'
 Sheet: calculs_intermediaires
 ----------------------------------------
 Cell B2: Font='Aptos Narrow', Size=12.0, Bold=False, Italic=True, Font Color=Values must be of type <class 'str'>, Fill Color=00000000, Alignment=None, Number Format='General'
