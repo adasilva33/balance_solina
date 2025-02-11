@@ -132,7 +132,9 @@ Sub DisplayFinEquipe()
     Call DisplayCellTextWithConfirmation("pop_up", "G3")
     Call MoveCursorToPopUpLastRow
 End Sub
-
+Sub CursorToLastRow()
+Call MoveCursorToPopUpLastRow
+End Sub
 
 Function MoveCursorToPopUpLastRow()
     Dim ws As Worksheet
