@@ -105,6 +105,7 @@ End Sub
 
 Sub DisplayFinOF()
     Call DisplayCellTextWithConfirmation("pop_up", "E3")
+    Call MoveCursorToPopUpLastRow
 End Sub
 
 Sub DisplayDebutOf()

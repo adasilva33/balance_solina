@@ -30,9 +30,7 @@ Sub CheckAllCells()
         
         'Checks alertes globales
         If Sheets("calculs_intermediaires").Range("AR4").Value = True Then
-            
-            'MsgBox "CheckAllCells is running - AR4 is TRUE!", vbInformation
-            
+                        
             ' moyenne courte inf QN
             Call CheckAndDisplayMessage(Sheets("calculs_intermediaires").Range("AR13"), Sheets("pop_up").Range("H3"))
             Debug.Print "moyenne_courte < QN"
