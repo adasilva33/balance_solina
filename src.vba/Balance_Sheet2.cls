@@ -7,49 +7,67 @@ Public Sub CheckAndDisplayMessage(cell_check As Range, cell_output As Range)
     End If
 End Sub
 
-Private Sub Worksheet_Calculate()
-    Call CheckAllCells
+Private Sub Worksheet_Change(ByVal Target As Range)
+    Dim ws As Worksheet
+    Dim watchCells As Range
+    Dim cell As Range
+
+    ' Set reference to the correct worksheet
+    Set ws = Sheets("calculs_intermediaires")
+
+    ' Use a workaround in case there's only one cell to monitor
+    On Error Resume Next
+    Set watchCells = Application.Union(ws.Range("AT2"), ws.Range("BA4"), ws.Range("BJ4"), _
+                                       ws.Range("AR4"), ws.Range("AR13"), ws.Range("AS13"), _
+                                       ws.Range("AT13"), ws.Range("AU13"))
+    On Error GoTo 0
+
+    ' Ensure that watchCells is not empty before proceeding
+    If Not watchCells Is Nothing Then
+        ' Check if the changed cell is within the watch list
+        If Not Intersect(Target, watchCells) Is Nothing Then
+            Call CheckAllCells
+        End If
+    End If
 End Sub
 
 Sub CheckAllCells()
+    Dim wsCalc As Worksheet
+    Dim wsPopup As Worksheet
+    
+    ' Set references for better performance
+    Set wsCalc = Sheets("calculs_intermediaires")
+    Set wsPopup = Sheets("pop_up")
 
-    If Sheets("calculs_intermediaires").Range("AT2").Value = True Then
+    ' Check only if AT2 is TRUE before running further checks
+    If wsCalc.Range("AT2").Value = True Then
         
-        'Checks alertes unitaires
-        If Sheets("calculs_intermediaires").Range("BA4").Value = True Then
-            'TU1
-            Call CheckAndDisplayMessage(Sheets("calculs_intermediaires").Range("BA4"), Sheets("pop_up").Range("K3"))
+        ' Check alertes unitaires
+        If wsCalc.Range("BA4").Value = True Then
+            Call CheckAndDisplayMessage(wsCalc.Range("BA4"), wsPopup.Range("K3"))
             Debug.Print "TU1"
         End If
         
-        If Sheets("calculs_intermediaires").Range("BJ4").Value = True Then
-          'TU2
-            Call CheckAndDisplayMessage(Sheets("calculs_intermediaires").Range("BJ4"), Sheets("pop_up").Range("L3"))
+        If wsCalc.Range("BJ4").Value = True Then
+            Call CheckAndDisplayMessage(wsCalc.Range("BJ4"), wsPopup.Range("L3"))
             Debug.Print "TU2"
         End If
         
-        'Checks alertes globales
-        If Sheets("calculs_intermediaires").Range("AR4").Value = True Then
-                        
-            ' moyenne courte inf QN
-            Call CheckAndDisplayMessage(Sheets("calculs_intermediaires").Range("AR13"), Sheets("pop_up").Range("H3"))
+        ' Check alertes globales
+        If wsCalc.Range("AR4").Value = True Then
+            Call CheckAndDisplayMessage(wsCalc.Range("AR13"), wsPopup.Range("H3"))
             Debug.Print "moyenne_courte < QN"
             
-            ' moyenne courte inf LCI
-            Call CheckAndDisplayMessage(Sheets("calculs_intermediaires").Range("AS13"), Sheets("pop_up").Range("I3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AS13"), wsPopup.Range("I3"))
             Debug.Print "moyenne_courte < LCI"
             
-            ' moyenne courte sup LCS
-            Call CheckAndDisplayMessage(Sheets("calculs_intermediaires").Range("AT13"), Sheets("pop_up").Range("J3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AT13"), wsPopup.Range("J3"))
             Debug.Print "moyenne_courte > LCS"
             
-            ' moyenne longue inf QN
-            Call CheckAndDisplayMessage(Sheets("calculs_intermediaires").Range("AU13"), Sheets("pop_up").Range("M3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AU13"), wsPopup.Range("M3"))
             Debug.Print "moyenne_courte < QN"
-    
         End If
     End If
-    
 End Sub
 
 

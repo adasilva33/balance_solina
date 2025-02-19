@@ -121,9 +121,8 @@ Sub DisplayDebutEquipe()
     Call DisplayCellTextWithConfirmation("pop_up", "F4")
     Call DisplayCellTextWithConfirmation("pop_up", "F5")
     Call DisplayCellTextWithConfirmation("pop_up", "F6")
-    
-    Sheets("calculs_intermediaires").Cells(7, "N").Value = PopUpAndInputWithConfirmation("pop_up", "F7", "F8", 1)
-
+    Call DisplayCellTextWithConfirmation("pop_up", "F7")
+    Call DisplayCellTextWithConfirmation("pop_up", "F8")
     Call DisplayCellTextWithConfirmation("pop_up", "F9")
     Call DisplayCellTextWithConfirmation("pop_up", "F10")
     Call MoveCursorToPopUpLastRow

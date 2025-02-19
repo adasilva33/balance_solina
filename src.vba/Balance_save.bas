@@ -56,14 +56,14 @@ Sub SaveCopyWithCustomName()
     On Error Resume Next
     wb.SaveCopyAs savePath
     If Err.Number <> 0 Then
-        MsgBox "Erreur lors de l'enregistrement du fichier. Vérifiez l'accès au dossier.", vbCritical
+        MsgBox "Erreur lors de l'enregistrement du fichier. Verifiez acces au dossier.", vbCritical
         Err.Clear
         Exit Sub
     End If
     On Error GoTo 0
     
     ' Confirmation
-    MsgBox "Une copie du fichier a été enregistrée sous : " & savePath, vbInformation
+    MsgBox "Une copie du fichier a été enregistree sous : " & savePath, vbInformation
     
     Call MoveCursorToPopUpLastRow
 End Sub
