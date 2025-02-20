@@ -33,38 +33,38 @@ End Sub
 
 Sub CheckAllCells()
     Dim wsCalc As Worksheet
-    Dim wsPopup As Worksheet
+    Dim wsPopUp As Worksheet
     
     ' Set references for better performance
     Set wsCalc = Sheets("calculs_intermediaires")
-    Set wsPopup = Sheets("pop_up")
+    Set wsPopUp = Sheets("pop_up")
 
     ' Check only if AT2 is TRUE before running further checks
     If wsCalc.Range("AT2").Value = True Then
         
         ' Check alertes unitaires
         If wsCalc.Range("BA4").Value = True Then
-            Call CheckAndDisplayMessage(wsCalc.Range("BA4"), wsPopup.Range("K3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("BA4"), wsPopUp.Range("K3"))
             Debug.Print "TU1"
         End If
         
         If wsCalc.Range("BJ4").Value = True Then
-            Call CheckAndDisplayMessage(wsCalc.Range("BJ4"), wsPopup.Range("L3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("BJ4"), wsPopUp.Range("L3"))
             Debug.Print "TU2"
         End If
         
         ' Check alertes globales
         If wsCalc.Range("AR4").Value = True Then
-            Call CheckAndDisplayMessage(wsCalc.Range("AR13"), wsPopup.Range("H3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AR13"), wsPopUp.Range("H3"))
             Debug.Print "moyenne_courte < QN"
             
-            Call CheckAndDisplayMessage(wsCalc.Range("AS13"), wsPopup.Range("I3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AS13"), wsPopUp.Range("I3"))
             Debug.Print "moyenne_courte < LCI"
             
-            Call CheckAndDisplayMessage(wsCalc.Range("AT13"), wsPopup.Range("J3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AT13"), wsPopUp.Range("J3"))
             Debug.Print "moyenne_courte > LCS"
             
-            Call CheckAndDisplayMessage(wsCalc.Range("AU13"), wsPopup.Range("M3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AU13"), wsPopUp.Range("M3"))
             Debug.Print "moyenne_courte < QN"
         End If
     End If

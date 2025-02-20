@@ -95,9 +95,9 @@ Sub DisplayCellTextWithConfirmation(sheetName As String, cellAddress As String)
     
     ' Vérifier la réponse de l'utilisateur
     If userResponse = vbYes Then
-        MsgBox "Confirmation reçue. Vous pouvez continuer.", vbInformation, "Validé"
+        MsgBox "Confirmation reçue. Vous pouvez continuer.", vbInformation, "Valide"
     Else
-        MsgBox "Action annulée par l'utilisateur.", vbExclamation, "Annulé"
+        MsgBox "Action annulee par l'utilisateur.", vbExclamation, "Annule"
         Exit Sub
     End If
 End Sub
@@ -106,14 +106,53 @@ End Sub
 Sub DisplayFinOF()
     Call DisplayCellTextWithConfirmation("pop_up", "E3")
     Call MoveCursorToPopUpLastRow
+    
+    Call SaveCopyWithCustomName 'save copy local
+    Call SaveOrCopyWorkbook 'save on the server copy
+    
+    Call DisplayCellTextWithConfirmation("pop_up", "E4")
 End Sub
 
 Sub DisplayDebutOf()
-    Sheets("interface").Cells(3, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C3", "C4", 0)
-    Sheets("interface").Cells(4, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C5", "C6", 0)
-    Sheets("interface").Cells(5, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C7", "C8", 1)
+    Dim wsPopUp As Worksheet
+    Dim wsInterface As Worksheet
+    Dim msgText As String
+    Dim userResponse As VbMsgBoxResult
+    
+    ' Set the worksheets
+    Set wsPopUp = ThisWorkbook.Sheets("pop_up")
+    Set wsInterface = ThisWorkbook.Sheets("interface")
+    
+    ' Get the message text from cell C10
+    msgText = wsPopUp.Range("C10").Value
+    
+    ' Display message box with Yes/No options
+    userResponse = MsgBox(msgText, vbYesNo + vbQuestion, "Confirmation")
+
+    ' If the user selects "No", exit the subroutine
+    If userResponse <> vbYes Then Exit Sub
+    
+    ' Call clean_data_brute if user selects Yes
+    Call clean_data_brute
+
+    ' Unprotect the "interface" sheet
+    On Error Resume Next
+    wsInterface.Unprotect password:=sheetPassword
+    On Error GoTo 0
+
+    ' Populate "interface" sheet with input values from "pop_up"
+    wsInterface.Cells(3, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C3", "C4", 0)
+    wsInterface.Cells(4, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C5", "C6", 0)
+    wsInterface.Cells(5, "C").Value = PopUpAndInputWithConfirmation("pop_up", "C7", "C8", 1)
+
+    ' Display another pop-up message based on "pop_up" sheet data
     Call DisplayCellTextWithConfirmation("pop_up", "C9")
+
+    ' Move cursor to the last row in the pop-up sheet
     Call MoveCursorToPopUpLastRow
+
+    ' Protect the "interface" sheet again
+    wsInterface.Protect password:=sheetPassword, UserInterfaceOnly:=True
 End Sub
 
 Sub DisplayDebutEquipe()
@@ -121,7 +160,6 @@ Sub DisplayDebutEquipe()
     Call DisplayCellTextWithConfirmation("pop_up", "F4")
     Call DisplayCellTextWithConfirmation("pop_up", "F5")
     Call DisplayCellTextWithConfirmation("pop_up", "F6")
-    Call DisplayCellTextWithConfirmation("pop_up", "F7")
     Call DisplayCellTextWithConfirmation("pop_up", "F8")
     Call DisplayCellTextWithConfirmation("pop_up", "F9")
     Call DisplayCellTextWithConfirmation("pop_up", "F10")
@@ -131,6 +169,7 @@ Sub DisplayFinEquipe()
 
     Call DisplayCellTextWithConfirmation("pop_up", "G3")
     Call MoveCursorToPopUpLastRow
+    
 End Sub
 Sub CursorToLastRow()
 Call MoveCursorToPopUpLastRow
