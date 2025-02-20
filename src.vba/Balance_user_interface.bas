@@ -114,17 +114,17 @@ Sub DisplayFinOF()
 End Sub
 
 Sub DisplayDebutOf()
-    Dim wsPopUp As Worksheet
+    Dim wsPopup As Worksheet
     Dim wsInterface As Worksheet
     Dim msgText As String
     Dim userResponse As VbMsgBoxResult
     
     ' Set the worksheets
-    Set wsPopUp = ThisWorkbook.Sheets("pop_up")
+    Set wsPopup = ThisWorkbook.Sheets("pop_up")
     Set wsInterface = ThisWorkbook.Sheets("interface")
     
     ' Get the message text from cell C10
-    msgText = wsPopUp.Range("C10").Value
+    msgText = wsPopup.Range("C10").Value
     
     ' Display message box with Yes/No options
     userResponse = MsgBox(msgText, vbYesNo + vbQuestion, "Confirmation")
