@@ -51,7 +51,8 @@ Sub AdjustYAxis()
     ' Réactiver la protection après modifications
     ws.Protect Password:=sheetPassword, UserInterfaceOnly:=True
 
-    MsgBox "Ajustement terminé avec succès.", vbInformation, "Succès"
+    MsgBox "Ajustement terminé avec succès.", vbInformation, "Succes"
+    Call MoveCursorToPopUpLastRow
 End Sub
 
 ' Fonction pour vérifier l'existence d'une feuille
