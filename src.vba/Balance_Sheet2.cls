@@ -1,73 +1,38 @@
-Public Sub CheckAndDisplayMessage(cell_check As Range, cell_output As Range)
-    Debug.Print "Checking:", cell_check.Address, "Value:", cell_check.Value
-    If Not IsEmpty(cell_check.Value) Then
-        If cell_check.Value = True Then
-            MsgBox cell_output.Value, vbInformation, "Message Alerte"
-        End If
-    End If
-End Sub
-
-Private Sub Worksheet_Change(ByVal Target As Range)
-    Dim ws As Worksheet
+Private Sub Worksheet_Calculate()
     Dim watchCells As Range
-    Dim cell As Range
-
-    ' Set reference to the correct worksheet
+    Dim ws As Worksheet
     Set ws = Sheets("calculs_intermediaires")
 
-    ' Use a workaround in case there's only one cell to monitor
-    On Error Resume Next
+    ' Define the cells we want to monitor
     Set watchCells = Application.Union(ws.Range("AT2"), ws.Range("BA4"), ws.Range("BJ4"), _
                                        ws.Range("AR4"), ws.Range("AR13"), ws.Range("AS13"), _
                                        ws.Range("AT13"), ws.Range("AU13"))
-    On Error GoTo 0
 
-    ' Ensure that watchCells is not empty before proceeding
-    If Not watchCells Is Nothing Then
-        ' Check if the changed cell is within the watch list
-        If Not Intersect(Target, watchCells) Is Nothing Then
-            Call CheckAllCells
-        End If
+    ' Check if recalculated cells intersect with our watchCells
+    If Not Intersect(Me.UsedRange, watchCells) Is Nothing Then
+        Call CheckAllCells
+    End If
+End Sub
+
+Public Sub CheckAndDisplayMessage(cell_check As Range, cell_output As Range)
+    If Not IsEmpty(cell_check.Value) And cell_check.Value = True Then
+        MsgBox cell_output.Value, vbInformation, "Message Alerte"
     End If
 End Sub
 
 Sub CheckAllCells()
-    Dim wsCalc As Worksheet
-    Dim wsPopup As Worksheet
-    
-    ' Set references for better performance
+    Dim wsCalc As Worksheet, wsPopup As Worksheet
     Set wsCalc = Sheets("calculs_intermediaires")
     Set wsPopup = Sheets("pop_up")
 
-    ' Check only if AT2 is TRUE before running further checks
     If wsCalc.Range("AT2").Value = True Then
-        
-        ' Check alertes unitaires
-        If wsCalc.Range("BA4").Value = True Then
-            Call CheckAndDisplayMessage(wsCalc.Range("BA4"), wsPopup.Range("K3"))
-            Debug.Print "TU1"
-        End If
-        
-        If wsCalc.Range("BJ4").Value = True Then
-            Call CheckAndDisplayMessage(wsCalc.Range("BJ4"), wsPopup.Range("L3"))
-            Debug.Print "TU2"
-        End If
-        
-        ' Check alertes globales
+        If wsCalc.Range("BA4").Value = True Then Call CheckAndDisplayMessage(wsCalc.Range("BA4"), wsPopup.Range("K3"))
+        If wsCalc.Range("BJ4").Value = True Then Call CheckAndDisplayMessage(wsCalc.Range("BJ4"), wsPopup.Range("L3"))
         If wsCalc.Range("AR4").Value = True Then
             Call CheckAndDisplayMessage(wsCalc.Range("AR13"), wsPopup.Range("H3"))
-            Debug.Print "moyenne_courte < QN"
-            
             Call CheckAndDisplayMessage(wsCalc.Range("AS13"), wsPopup.Range("I3"))
-            Debug.Print "moyenne_courte < LCI"
-            
             Call CheckAndDisplayMessage(wsCalc.Range("AT13"), wsPopup.Range("J3"))
-            Debug.Print "moyenne_courte > LCS"
-            
             Call CheckAndDisplayMessage(wsCalc.Range("AU13"), wsPopup.Range("M3"))
-            Debug.Print "moyenne_courte < QN"
         End If
     End If
 End Sub
-
-
