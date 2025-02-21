@@ -1,7 +1,6 @@
-Sub AdjustYAxis()
+Sub AdjustYAxis(minY As Double, maxY As Double)
     Dim chartObj As ChartObject
     Dim ws As Worksheet
-    Dim minY As Variant, maxY As Variant
     Dim sheetPassword As String
 
     ' Définir explicitement la feuille de travail
@@ -19,20 +18,9 @@ Sub AdjustYAxis()
         Exit Sub
     End If
 
-    ' Vérifier la feuille contenant les valeurs min/max
-    If Not WorksheetExists("calculs_intermediaires") Then
-        MsgBox "La feuille 'calculs_intermediaires' n'existe pas.", vbExclamation, "Erreur"
-        ws.Protect password:=sheetPassword, UserInterfaceOnly:=True ' Reprotéger avant de quitter
-        Exit Sub
-    End If
-
-    ' Récupérer les valeurs min/max
-    minY = Sheets("calculs_intermediaires").Range("BX8").Value
-    maxY = Sheets("calculs_intermediaires").Range("BX9").Value
-
-    ' Vérifier si ce sont bien des nombres
+    ' Vérifier si les valeurs sont valides
     If Not IsNumeric(minY) Or Not IsNumeric(maxY) Then
-        MsgBox "Les valeurs des cellules BU8 et BU9 ne sont pas valides.", vbExclamation, "Erreur"
+        MsgBox "Les valeurs min et max ne sont pas valides.", vbExclamation, "Erreur"
         ws.Protect password:=sheetPassword, UserInterfaceOnly:=True ' Reprotéger avant de quitter
         Exit Sub
     End If
@@ -50,8 +38,30 @@ Sub AdjustYAxis()
     ' Réactiver la protection après modifications
     ws.Protect password:=sheetPassword, UserInterfaceOnly:=True
 
-    MsgBox "Ajustement terminé avec succès.", vbInformation, "Succes"
+    MsgBox "Ajustement terminé avec succès.", vbInformation, "Succès"
     Call MoveCursorToPopUpLastRow
+End Sub
+Sub CallVueGlobale()
+    Dim minValue As Double
+    Dim maxValue As Double
+    
+    ' Lire les valeurs depuis la feuille "calculs_intermediaires"
+    minValue = Sheets("calculs_intermediaires").Range("BY8").Value
+    maxValue = Sheets("calculs_intermediaires").Range("BY9").Value
+
+    ' Appel de la fonction principale
+    AdjustYAxis minValue, maxValue
+End Sub
+Sub CallRecentrer()
+    Dim minValue As Double
+    Dim maxValue As Double
+    
+    ' Lire les valeurs depuis la feuille "calculs_intermediaires"
+    minValue = Sheets("calculs_intermediaires").Range("BX8").Value
+    maxValue = Sheets("calculs_intermediaires").Range("BX9").Value
+
+    ' Appel de la fonction principale
+    AdjustYAxis minValue, maxValue
 End Sub
 
 ' Fonction pour vérifier l'existence d'une feuille
