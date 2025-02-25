@@ -14,9 +14,9 @@ Private Sub Worksheet_Calculate()
     End If
 End Sub
 
-Public Sub CheckAndDisplayMessage(cell_check As Range, cell_output As Range)
+Public Sub CheckAndDisplayMessage(cell_check As Range, cell_output As Range, alert_name As Range)
     If Not IsEmpty(cell_check.Value) And cell_check.Value = True Then
-        MsgBox cell_output.Value, vbInformation, "Message Alerte"
+        MsgBox cell_output.Value, vbInformation, alert_name
     End If
 End Sub
 
@@ -26,13 +26,13 @@ Sub CheckAllCells()
     Set wsPopup = Sheets("pop_up")
 
     If wsCalc.Range("AT2").Value = True Then
-        If wsCalc.Range("BA4").Value = True Then Call CheckAndDisplayMessage(wsCalc.Range("BA4"), wsPopup.Range("K3"))
-        If wsCalc.Range("BJ4").Value = True Then Call CheckAndDisplayMessage(wsCalc.Range("BJ4"), wsPopup.Range("L3"))
+        If wsCalc.Range("BA4").Value = True Then Call CheckAndDisplayMessage(wsCalc.Range("BA4"), wsPopup.Range("K3"), wsPopup.Range("K2"))
+        If wsCalc.Range("BJ4").Value = True Then Call CheckAndDisplayMessage(wsCalc.Range("BJ4"), wsPopup.Range("L3"), wsPopup.Range("L2"))
         If wsCalc.Range("AR4").Value = True Then
-            Call CheckAndDisplayMessage(wsCalc.Range("AR13"), wsPopup.Range("H3"))
-            Call CheckAndDisplayMessage(wsCalc.Range("AS13"), wsPopup.Range("I3"))
-            Call CheckAndDisplayMessage(wsCalc.Range("AT13"), wsPopup.Range("J3"))
-            Call CheckAndDisplayMessage(wsCalc.Range("AU13"), wsPopup.Range("M3"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AR13"), wsPopup.Range("H3"), wsPopup.Range("H2"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AS13"), wsPopup.Range("I3"), wsPopup.Range("I2"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AT13"), wsPopup.Range("J3"), wsPopup.Range("J2"))
+            Call CheckAndDisplayMessage(wsCalc.Range("AU13"), wsPopup.Range("M3"), wsPopup.Range("M2"))
         End If
     End If
 End Sub
