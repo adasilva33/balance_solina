@@ -65,7 +65,6 @@ Sub SaveCopyWithCustomName()
     ' Confirmation
     MsgBox "Une copie du fichier a été enregistree sous : " & savePath, vbInformation
     
-    Call MoveCursorToPopUpLastRow
 End Sub
 
 Sub SaveOrCopyWorkbook()
