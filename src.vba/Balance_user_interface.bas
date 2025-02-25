@@ -105,12 +105,12 @@ End Sub
 
 Sub DisplayFinOF()
     Call DisplayCellTextWithConfirmation("pop_up", "E3")
-    Call MoveCursorToPopUpLastRow
     
     Call SaveCopyWithCustomName 'save copy local
     Call SaveOrCopyWorkbook 'save on the server copy
     
     Call DisplayCellTextWithConfirmation("pop_up", "E4")
+    Call MoveCursorToPopUpLastRow
 End Sub
 
 Sub DisplayDebutOf()
@@ -169,10 +169,11 @@ Sub DisplayFinEquipe()
 
     Call DisplayCellTextWithConfirmation("pop_up", "G3")
     Call MoveCursorToPopUpLastRow
+    Call SaveCopyWithCustomName
     
 End Sub
 Sub CursorToLastRow()
-Call MoveCursorToPopUpLastRow
+    Call MoveCursorToPopUpLastRow
 End Sub
 
 Function MoveCursorToPopUpLastRow()
