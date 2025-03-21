@@ -36,9 +36,9 @@ Sub AdjustYAxis(minY As Double, maxY As Double)
     On Error GoTo 0
 
     ' Réactiver la protection après modifications
-    ws.Protect password:=sheetPassword, UserInterfaceOnly:=True
+    ws.Protect password:=sheetPassword
 
-    MsgBox "Ajustement terminé avec succès.", vbInformation, "Succès"
+    MsgBox "Ajustement termine avec succes", vbInformation, "Succes"
     Call MoveCursorToPopUpLastRow
 End Sub
 Sub CallVueGlobale()
